@@ -2,6 +2,7 @@ package com.optimus.moviescollection
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import java.lang.RuntimeException
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
