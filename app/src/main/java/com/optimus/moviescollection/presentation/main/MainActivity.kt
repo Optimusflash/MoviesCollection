@@ -1,17 +1,12 @@
 package com.optimus.moviescollection.presentation.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.optimus.moviescollection.R
-import com.optimus.moviescollection.data.remote.MovieService
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.optimus.moviescollection.databinding.ActivityMainBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +16,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
 
+    private val mainAdapter by lazy { MainMoviesAdapter() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding  = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initDaggerComponent()
         initViewModels()
@@ -40,17 +37,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-
+        binding.rvMain.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvMain.adapter = mainAdapter
     }
 
     private fun setObservers() {
-        mainViewModel.popularMovies.observe(this, { popularMovies->
-            var temp = ""
-                popularMovies.movies.forEach {
-                    temp += it.title +"\n"
-                }
-                binding.tvMain.text = temp
+        mainViewModel.popularMovies.observe(this, { popularMovies ->
+            mainAdapter.updateData(popularMovies.movies)
         })
     }
-
 }

@@ -13,6 +13,8 @@ data class Movie(
     val title: String,
     @SerializedName("genre_ids")
     val genres: List<Int>,
+    @SerializedName("vote_average")
+    val rating: Float
 ) {
 
 }
