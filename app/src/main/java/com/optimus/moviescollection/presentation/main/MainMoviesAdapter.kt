@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.optimus.moviescollection.data.model.Movie
 import com.optimus.moviescollection.databinding.ActivityMainBinding
 import com.optimus.moviescollection.databinding.RvMovieSellBinding
+import com.optimus.moviescollection.extensions.dateFormat
 import com.optimus.moviescollection.extensions.loadImage
 
 /**
@@ -39,6 +40,7 @@ class MainMoviesAdapter: RecyclerView.Adapter<MainMoviesAdapter.PopularMoviesVie
             binding.ivPoster.loadImage(movie.posterPath)
             binding.tvMovieTitle.text = movie.title
             binding.tvRating.text = movie.rating.toString()
+            binding.tvDate.text = movie.date.dateFormat()
         }
 
 

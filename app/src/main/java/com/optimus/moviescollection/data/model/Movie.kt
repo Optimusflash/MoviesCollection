@@ -14,7 +14,9 @@ data class Movie(
     @SerializedName("genre_ids")
     val genres: List<Int>,
     @SerializedName("vote_average")
-    val rating: Float
+    val rating: Float,
+    @SerializedName("release_date")
+    val date: String
 ) {
 
 }
