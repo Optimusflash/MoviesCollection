@@ -9,7 +9,7 @@ import javax.inject.Inject
  */
 class MainRepository @Inject constructor(private val api: MovieService) {
 
-    suspend fun loadPopularMovies(): MovieResponse {
-        return api.getPopularMovies()
+    suspend fun loadPopularMovies(page: Int): MovieResponse {
+        return api.getPopularMovies(page)
     }
 }

@@ -12,18 +12,19 @@ import javax.inject.Inject
 /**
  * Created by Dmitriy Chebotar on 25.08.2020.
  */
-class MainViewModel @Inject constructor(repository: MainRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     private lateinit var _popularMovies: LiveData<MovieResponse>
+    private var page = 1
+
     val popularMovies: LiveData<MovieResponse>
         get() = _popularMovies
 
     init {
         viewModelScope.launch {
             _popularMovies = liveData {
-                emit(repository.loadPopularMovies())
+                emit(repository.loadPopularMovies(page))
             }
-
         }
     }
 }

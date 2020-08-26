@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.optimus.moviescollection.databinding.ActivityMainBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
+import com.optimus.moviescollection.utils.OffsetItemDecoration
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -37,8 +39,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        val pagerSnapHelper = LinearSnapHelper()
+        pagerSnapHelper.attachToRecyclerView( binding.rvMain)
         binding.rvMain.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvMain.adapter = mainAdapter
+        binding.rvMain.addItemDecoration(OffsetItemDecoration(this))
     }
 
     private fun setObservers() {
