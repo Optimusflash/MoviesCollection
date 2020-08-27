@@ -1,13 +1,12 @@
 package com.optimus.moviescollection.di.modules
 
 import com.optimus.moviescollection.BuildConfig
-import com.optimus.moviescollection.data.remote.MovieService
+import com.optimus.moviescollection.data.remote.GenreService
+import com.optimus.moviescollection.data.remote.PopularMovieService
 import com.optimus.moviescollection.data.remote.MoviesInterceptor
 import dagger.Module
 import dagger.Provides
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -53,7 +52,13 @@ class RemoteModule {
 
     @Provides
     @Singleton
-    fun provideMovieService(retrofit: Retrofit): MovieService {
-        return retrofit.create(MovieService::class.java)
+    fun providePopularMovieService(retrofit: Retrofit): PopularMovieService {
+        return retrofit.create(PopularMovieService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGenreService(retrofit: Retrofit): GenreService {
+        return retrofit.create(GenreService::class.java)
     }
 }

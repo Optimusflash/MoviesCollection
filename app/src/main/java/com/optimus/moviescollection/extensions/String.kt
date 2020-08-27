@@ -8,7 +8,8 @@ import java.util.*
  */
 
 
-fun String.dateFormat(pattern: String = "yyyy"): String {
+fun String.dateFormat(pattern: String? = "yyyy"): String {
+    pattern ?: return ""
     val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale("ru"))
     val outputFormat = SimpleDateFormat(pattern, Locale("ru"))
     val date = inputFormat.parse(this)

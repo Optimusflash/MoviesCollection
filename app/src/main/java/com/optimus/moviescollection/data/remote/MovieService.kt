@@ -1,6 +1,6 @@
 package com.optimus.moviescollection.data.remote
 
-import com.optimus.moviescollection.BuildConfig
+import com.optimus.moviescollection.data.model.Genres
 import com.optimus.moviescollection.data.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,8 +10,12 @@ import retrofit2.http.Query
  */
 
 
-interface MovieService {
-
+interface PopularMovieService {
     @GET("movie/popular")
     suspend fun getPopularMovies(@Query("page")page: Int): MovieResponse
+}
+
+interface GenreService {
+    @GET("/genre/movie/list")
+    suspend fun getPopularMovies(): Genres
 }

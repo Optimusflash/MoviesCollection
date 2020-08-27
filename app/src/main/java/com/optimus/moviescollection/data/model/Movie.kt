@@ -9,14 +9,12 @@ import com.google.gson.annotations.SerializedName
 data class Movie(
     val id: String,
     @SerializedName("poster_path")
-    val posterPath: String,
+    val posterPath: String?,
     val title: String,
-    @SerializedName("genre_ids")
-    val genres: List<Int>,
     @SerializedName("vote_average")
     val rating: Float,
     @SerializedName("release_date")
-    val date: String
+    val date: String?
 ) {
 
 }

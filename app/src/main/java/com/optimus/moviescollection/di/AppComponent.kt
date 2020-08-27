@@ -1,5 +1,6 @@
 package com.optimus.moviescollection.di
 
+import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
 import com.optimus.moviescollection.presentation.main.MainActivity
 import com.optimus.moviescollection.di.modules.RemoteModule
 import com.optimus.moviescollection.di.modules.ViewModelModule
@@ -13,4 +14,5 @@ import javax.inject.Singleton
 @Component(modules = [RemoteModule::class, ViewModelModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
+    fun inject(movieDataSourceFactory: MovieDataSourceFactory)
 }
