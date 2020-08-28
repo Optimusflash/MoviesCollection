@@ -10,7 +10,6 @@
         android:layout_width="0dp"
         android:layout_height="450dp"
         android:elevation="10dp"
-        android:layout_marginTop="33dp"
         android:scaleType="fitCenter"
         app:layout_constraintDimensionRatio="w,1:1.5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,25 +19,23 @@
 
     <TextView
         android:id="@+id/tv_movie_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Text_semi_bold_dark_blue_grey_21"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:maxLines="4"
+        android:ellipsize="end"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_poster"
-        tools:text="Random name" />
+        tools:text="Project power" />
 
     <TextView
         android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Text_regular_dusk_12"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toStartOf="@+id/tv_date"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
         app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
         tools:text="8.2" />
@@ -50,19 +47,16 @@
         android:src="@drawable/ic_baseline_star_24"
         app:layout_constraintBottom_toBottomOf="@+id/tv_rating"
         app:layout_constraintEnd_toStartOf="@+id/tv_rating"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_rating" />
 
     <TextView
         android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Text_regular_dusk_12"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_rating"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tv_rating"
         app:layout_constraintTop_toTopOf="@+id/tv_rating"
         tools:text="2019" />

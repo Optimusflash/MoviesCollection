@@ -1,10 +1,52 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/carnation</item>
+<!--        <item name="android:windowBackground">@color/white</item>-->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="chipStyle">@style/DefaultChipStyle</item>
+    </style>
+
+    <style name="TextAppearance"> </style>
+
+    <style name="Text_semi_bold_dark_blue_grey_21" parent="TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="Text_regular_dusk_12" parent="TextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/amiko_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/dusk</item>
+    </style>
+
+    <style name="DefaultTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+
+    <style name="DefaultChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:minHeight">27dp</item>
+        <item name="android:textAppearance">@style/DefaultTextAppearance</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/chip_text_color_state</item>
+        <item name="chipBackgroundColor">@color/chip_selected_background_color_state</item>
+        <item name="chipStrokeColor">@color/chip_stroke_selected_color_state</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStartPadding">16dp</item>
+        <item name="chipEndPadding">16dp</item>
     </style>
 
 </resources>

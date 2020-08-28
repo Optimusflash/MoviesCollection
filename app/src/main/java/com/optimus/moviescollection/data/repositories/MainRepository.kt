@@ -8,13 +8,14 @@ import com.optimus.moviescollection.data.model.Movie
 import com.optimus.moviescollection.data.model.MovieResponse
 import com.optimus.moviescollection.data.paging.MovieDataSource
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
+import com.optimus.moviescollection.data.remote.GenreService
 import com.optimus.moviescollection.data.remote.PopularMovieService
 import javax.inject.Inject
 
 /**
  * Created by Dmitriy Chebotar on 25.08.2020.
  */
-class MainRepository @Inject constructor(private val popularMovieService: PopularMovieService) {
+class MainRepository @Inject constructor(private val popularMovieService: PopularMovieService, private val genreService: GenreService) {
 
     private val movieDataSourceFactory: MovieDataSourceFactory = MovieDataSourceFactory(popularMovieService)
 
@@ -37,6 +38,8 @@ class MainRepository @Inject constructor(private val popularMovieService: Popula
     suspend fun loadPopularMovies(page: Int): MovieResponse {
         return popularMovieService.getPopularMovies(page)
     }
+
+    suspend fun loadGenres() = genreService.getGenreList()
 
 
 }
