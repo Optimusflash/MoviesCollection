@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.google.android.material.chip.Chip
-import com.optimus.moviescollection.data.model.Genre
 import com.optimus.moviescollection.data.model.GenreResponse
 import com.optimus.moviescollection.databinding.ActivityMainBinding
 import com.optimus.moviescollection.di.Injector
@@ -64,17 +63,27 @@ class MainActivity : AppCompatActivity() {
         binding.rvMain.isNestedScrollingEnabled = false
 
 
-
     }
 
     private fun setupChipsGroup(genreResponse: GenreResponse) {
         val genres = genreResponse.genres
+        val listener: (String) -> Unit = { }
+        val defaultChip = Chip(this).apply {
+            id = 0
+            text = "All" //TODO
+            isChecked = true
+        }
+        binding.chipGroup.addView(defaultChip)
         for (i in genres.indices){
             val chip = Chip(this).apply {
                 id = genres[i].id
                 text = genres[i].name.capitalize(Locale.getDefault())
             }
             binding.chipGroup.addView(chip)
+        }
+
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+            mainViewModel.setCheckedChipId(checkedId)
         }
     }
 
@@ -85,6 +94,9 @@ class MainActivity : AppCompatActivity() {
 //        })
 
         mainViewModel.moviePageList.observe(this, Observer {
+            Log.e("M_MainActivity", "pagedList ${it.map { 
+                
+            }}")
             mainAdapter.submitList(it)
         })
 

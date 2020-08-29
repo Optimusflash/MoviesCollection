@@ -17,7 +17,8 @@ import javax.inject.Inject
  */
 class MainRepository @Inject constructor(private val popularMovieService: PopularMovieService, private val genreService: GenreService) {
 
-    private val movieDataSourceFactory: MovieDataSourceFactory = MovieDataSourceFactory(popularMovieService)
+    val movieDataSourceFactory: MovieDataSourceFactory = MovieDataSourceFactory(popularMovieService)
+
 
     private val _moviesPageList: LiveData<PagedList<Movie>>
     val moviesPageList
@@ -35,11 +36,15 @@ class MainRepository @Inject constructor(private val popularMovieService: Popula
         _moviesPageList = LivePagedListBuilder(movieDataSourceFactory, config).build()
     }
 
-    suspend fun loadPopularMovies(page: Int): MovieResponse {
-        return popularMovieService.getPopularMovies(page)
-    }
+//    suspend fun loadPopularMovies(page: Int): MovieResponse {
+//        return popularMovieService.getPopularMovies(page)
+//    }
 
     suspend fun loadGenres() = genreService.getGenreList()
+    fun setChipId(checkedId: Int?) {
+        movieDataSourceFactory.genreId = checkedId
+        movieDataSource.value?.invalidate()
+    }
 
 
 }

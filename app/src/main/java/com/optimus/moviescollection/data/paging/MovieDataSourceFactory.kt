@@ -12,9 +12,10 @@ import com.optimus.moviescollection.data.remote.PopularMovieService
 class MovieDataSourceFactory (private val popularMovieService: PopularMovieService): DataSource.Factory<Int, Movie>() {
 
     val movieLiveDataSource = MutableLiveData<MovieDataSource>()  //TODO
+    var genreId: Int? = null
 
     override fun create(): DataSource<Int, Movie> {
-        val movieDataSource = MovieDataSource(popularMovieService)
+        val movieDataSource = MovieDataSource(genreId,popularMovieService)
         movieLiveDataSource.postValue(movieDataSource)
         return movieDataSource
     }

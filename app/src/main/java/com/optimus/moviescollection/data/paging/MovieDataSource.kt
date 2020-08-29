@@ -18,8 +18,9 @@ import javax.inject.Inject
 private const val FIRST_PAGE = 1
 private const val PAGE_MAX = 100
 
-class MovieDataSource @Inject constructor(private val popularMovieService: PopularMovieService) :
+class MovieDataSource (private val genreId:Int?, private val popularMovieService: PopularMovieService) :
     PageKeyedDataSource<Int, Movie>() {
+
 
     var state: MutableLiveData<State> = MutableLiveData()
 
@@ -33,8 +34,8 @@ class MovieDataSource @Inject constructor(private val popularMovieService: Popul
         GlobalScope.launch {
             try {
                 updateState(State.LOADING)
-                val movieResponse = popularMovieService.getPopularMovies(FIRST_PAGE)
-                Log.e("M_MovieDataSource", "$movieResponse")
+                val movieResponse = popularMovieService.getPopularMovies(FIRST_PAGE,genreId)
+                Log.e("M_MovieDataSource", "loadInitial $movieResponse")
                 callback.onResult(movieResponse.movies, null, FIRST_PAGE + 1)
                 updateState(State.DONE)
             } catch (e: Exception) {
@@ -49,7 +50,8 @@ class MovieDataSource @Inject constructor(private val popularMovieService: Popul
         GlobalScope.launch {
             try {
                 updateState(State.LOADING)
-                val movieResponse = popularMovieService.getPopularMovies(params.key)
+                val movieResponse = popularMovieService.getPopularMovies(params.key,genreId)
+                Log.e("M_MovieDataSource", "loadAfter $movieResponse")
                 val key = params.key + 1
                 callback.onResult(movieResponse.movies, key)
                 updateState(State.DONE)

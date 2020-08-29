@@ -16,11 +16,16 @@ class MainViewModel @Inject constructor(private val repository: MainRepository) 
 
 
     val moviePageList = repository.moviesPageList
+    private val movieDataSourceFactory = repository.movieDataSourceFactory
     private val movieDataSource = repository.movieDataSource
 
     private lateinit var _genres: LiveData<GenreResponse>
     val genres: LiveData<GenreResponse>
         get() = _genres
+
+    private val _checkedChipId = MutableLiveData<Int>()
+
+
 
     init {
         viewModelScope.launch {
@@ -29,6 +34,8 @@ class MainViewModel @Inject constructor(private val repository: MainRepository) 
             }
         }
     }
+
+
 
     fun getState(): LiveData<State> =
         Transformations.switchMap(movieDataSource, MovieDataSource::state)
@@ -41,6 +48,11 @@ class MainViewModel @Inject constructor(private val repository: MainRepository) 
         return moviePageList.value?.isEmpty() ?: true
     }
 
+    fun setCheckedChipId(checkedId: Int) {
+       val result = if (checkedId==0) null else checkedId
+        repository.setChipId(result)
+
+    }
 
 
 //    private lateinit var _popularMovies: LiveData<MovieResponse>
