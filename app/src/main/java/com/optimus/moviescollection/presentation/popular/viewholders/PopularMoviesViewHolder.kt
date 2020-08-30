@@ -1,9 +1,8 @@
-package com.optimus.moviescollection.presentation.main.viewholders
+package com.optimus.moviescollection.presentation.popular.viewholders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.optimus.moviescollection.R
 import com.optimus.moviescollection.data.model.Movie
 import com.optimus.moviescollection.databinding.RvMovieSellBinding
 import com.optimus.moviescollection.extensions.dateFormat

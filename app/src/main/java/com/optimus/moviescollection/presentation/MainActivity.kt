@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.main
+package com.optimus.moviescollection.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

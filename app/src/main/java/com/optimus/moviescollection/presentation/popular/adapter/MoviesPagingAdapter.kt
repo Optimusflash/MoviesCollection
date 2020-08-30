@@ -1,15 +1,13 @@
 package com.optimus.moviescollection.presentation.popular.adapter
 
-import android.util.Log
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.optimus.moviescollection.data.model.Movie
-import com.optimus.moviescollection.presentation.main.viewholders.PopularMoviesFooterViewHolder
-import com.optimus.moviescollection.presentation.main.viewholders.PopularMoviesViewHolder
+import com.optimus.moviescollection.presentation.popular.viewholders.PopularMoviesFooterViewHolder
+import com.optimus.moviescollection.presentation.popular.viewholders.PopularMoviesViewHolder
 import com.optimus.moviescollection.utils.State
-import java.lang.RuntimeException
 
 /**
  * Created by Dmitriy Chebotar on 26.08.2020.

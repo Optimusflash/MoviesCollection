@@ -2,6 +2,7 @@
 <resources>
     <color name="dark_blue_grey">#12153d</color>
     <color name="dark_blue_grey_alpha_30">#3012153d</color>
+    <color name="dark_blue_grey_alpha_15">#1512153d</color>
     <color name="dusk">#434670</color>
     <color name="blue_grey">#9a9bb2</color>
     <color name="dark_mint">#51cf66</color>

@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.main.viewholders
+package com.optimus.moviescollection.presentation.popular.viewholders
 
 import android.view.LayoutInflater
 import android.view.View.INVISIBLE

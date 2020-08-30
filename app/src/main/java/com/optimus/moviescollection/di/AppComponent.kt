@@ -1,7 +1,6 @@
 package com.optimus.moviescollection.di
 
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
-import com.optimus.moviescollection.presentation.main.MainActivity
 import com.optimus.moviescollection.di.modules.RemoteModule
 import com.optimus.moviescollection.di.modules.ViewModelModule
 import com.optimus.moviescollection.presentation.popular.PopularFragment
