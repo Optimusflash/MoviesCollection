@@ -2,7 +2,7 @@ package com.optimus.moviescollection.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.optimus.moviescollection.di.ViewModelKey
-import com.optimus.moviescollection.presentation.main.MainViewModel
+import com.optimus.moviescollection.presentation.popular.PopularViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -15,6 +15,6 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelModule {
     @IntoMap
     @Binds
-    @ViewModelKey(MainViewModel::class)
-    abstract fun provideMainViewModel(mainViewModel: MainViewModel): ViewModel
+    @ViewModelKey(PopularViewModel::class)
+    abstract fun provideMainViewModel(popularViewModel: PopularViewModel): ViewModel
 }

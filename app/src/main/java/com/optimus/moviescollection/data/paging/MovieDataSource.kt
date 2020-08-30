@@ -18,7 +18,7 @@ import javax.inject.Inject
 private const val FIRST_PAGE = 1
 private const val PAGE_MAX = 100
 
-class MovieDataSource (private val genreId:Int?, private val popularMovieService: PopularMovieService) :
+class MovieDataSource (private val genreId:Int?, private val popularMovieService: PopularMovieService, private val scope: CoroutineScope) :
     PageKeyedDataSource<Int, Movie>() {
 
 
@@ -31,7 +31,7 @@ class MovieDataSource (private val genreId:Int?, private val popularMovieService
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, Movie>
     ) {
-        GlobalScope.launch {
+        scope.launch {
             try {
                 updateState(State.LOADING)
                 val movieResponse = popularMovieService.getPopularMovies(FIRST_PAGE,genreId)
@@ -47,7 +47,7 @@ class MovieDataSource (private val genreId:Int?, private val popularMovieService
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Movie>) {
         if (params.key == PAGE_MAX + 1) return
-        GlobalScope.launch {
+        scope.launch {
             try {
                 updateState(State.LOADING)
                 val movieResponse = popularMovieService.getPopularMovies(params.key,genreId)
