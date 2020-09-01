@@ -12,10 +12,7 @@ import com.optimus.moviescollection.data.model.MovieDetails
 import com.optimus.moviescollection.databinding.FragmentDetailsBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
-import com.optimus.moviescollection.extensions.addChips
-import com.optimus.moviescollection.extensions.dateFormat
-import com.optimus.moviescollection.extensions.loadRoundCornerImage
-import com.optimus.moviescollection.extensions.setLightStatusBar
+import com.optimus.moviescollection.extensions.*
 import javax.inject.Inject
 
 
@@ -73,7 +70,7 @@ class DetailsFragment : Fragment() {
         binding.tvRating.text = movieDetails.rating.toString()
         binding.tvPopularity.text = movieDetails.popularity.toString()
         binding.tvMovieDate.text = movieDetails.date.dateFormat("dd.MM.yyyy")  //TODO
-        binding.tvMovieDuration.text = movieDetails.duration.toString()
+        binding.tvMovieDuration.text = movieDetails.duration.formatDuration()
         binding.tvVoteCount.text = movieDetails.voteCount.toString()
         binding.chipGroup2.addChips(
             requireContext(),
