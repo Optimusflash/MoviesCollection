@@ -21,10 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="262dp"
-        android:layout_marginStart="32dp"
-        android:paddingVertical="@dimen/global_spacing_16"
+        android:layout_marginStart="@dimen/global_spacing_32"
         android:background="@drawable/details_view_meta_data_background"
         android:elevation="20dp"
+        android:paddingVertical="@dimen/global_spacing_16"
         android:paddingTop="@dimen/global_spacing_8"
         android:paddingBottom="@dimen/global_spacing_8"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,23 +44,23 @@
 
         <TextView
             android:id="@+id/tv_rating"
+            style="@style/Text_semi_bold_steel_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Text_semi_bold_steel_16"
-            tools:text="8.2/10"
             app:layout_constraintEnd_toEndOf="@+id/appCompatImageView4"
             app:layout_constraintStart_toStartOf="@+id/appCompatImageView4"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4"
+            tools:text="8.2/10" />
 
         <TextView
             android:id="@+id/tv_popularity"
+            style="@style/Text_semi_bold_steel_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="150,212"
-            style="@style/Text_semi_bold_steel_16"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_rating"
             app:layout_constraintEnd_toEndOf="@+id/appCompatImageView5"
-            app:layout_constraintStart_toStartOf="@+id/appCompatImageView5" />
+            app:layout_constraintStart_toStartOf="@+id/appCompatImageView5"
+            tools:text="150,212" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView5"
@@ -79,91 +79,94 @@
             android:background="@drawable/tv_vote_count_background"
             android:gravity="center"
             android:paddingHorizontal="8dp"
-            tools:text="8206"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/appCompatImageView5"
-            app:layout_constraintTop_toTopOf="@+id/appCompatImageView5" />
+            app:layout_constraintTop_toTopOf="@+id/appCompatImageView5"
+            tools:text="8206" />
 
         <TextView
             android:id="@+id/textView5"
+            style="@style/Text_semi_bold_steel_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vote count"
-            style="@style/Text_semi_bold_steel_16"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_popularity"
             app:layout_constraintEnd_toEndOf="@+id/tv_vote_count"
             app:layout_constraintHorizontal_bias="0.58"
             app:layout_constraintStart_toStartOf="@+id/tv_vote_count" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="80dp"
+        android:paddingTop="65dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_movie">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingHorizontal="@dimen/global_spacing_32">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
             <TextView
                 android:id="@+id/tv_movie_title"
                 style="@style/Text_semi_bold_dark_blue_grey_32"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="Project Power"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Project Power" />
 
             <TextView
                 android:id="@+id/tv_movie_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/global_spacing_8"
-                tools:text="2020"
                 app:layout_constraintStart_toStartOf="@+id/tv_movie_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_movie_title" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
+                tools:text="2020" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/global_spacing_28"
-                tools:text="PG-13"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_movie_date"
-                app:layout_constraintStart_toEndOf="@+id/tv_movie_date" />
+                app:layout_constraintStart_toEndOf="@+id/tv_movie_date"
+                tools:text="PG-13" />
 
             <TextView
                 android:id="@+id/tv_movie_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/global_spacing_24"
-                tools:text="2h 32min"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
-                app:layout_constraintStart_toEndOf="@+id/textView8" />
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                tools:text="2h 32min" />
+
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/global_spacing_8"
                 android:paddingBottom="@dimen/global_spacing_8"
-                app:selectionRequired="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_movie_date"
+                app:selectionRequired="false"
                 tools:background="@color/dark_mint" />
-
 
             <TextView
                 android:id="@+id/textView10"
@@ -177,25 +180,56 @@
             <TextView
                 android:id="@+id/tv_movie_description"
                 style="@style/Text_regular_steel_16"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/global_spacing_16"
                 android:fontFamily="@font/exo_2_bold"
-                tools:text="American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order."
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:text="American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order." />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/Text_regular_dark_blue_grey_24"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/global_spacing_32"
+                android:text="@string/cast_crew"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_description"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_description" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="32dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="32dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_credits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/global_spacing_16"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_movie_description" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

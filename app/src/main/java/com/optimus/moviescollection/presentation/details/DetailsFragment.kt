@@ -1,6 +1,5 @@
 package com.optimus.moviescollection.presentation.details
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.optimus.moviescollection.data.model.MovieDetails
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.optimus.moviescollection.data.model.movie.MovieDetails
 import com.optimus.moviescollection.databinding.FragmentDetailsBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
@@ -22,6 +22,7 @@ class DetailsFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var detailsViewModel: DetailsViewModel
     private lateinit var binding : FragmentDetailsBinding
+    private val creditAdapter by lazy { CreditAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,19 +56,26 @@ class DetailsFragment : Fragment() {
             val movieId = DetailsFragmentArgs.fromBundle(it).movieId
             detailsViewModel.setMovieId(movieId)
         }
+        binding.rvCredits.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvCredits.adapter = creditAdapter
     }
 
     private fun setObservers() {
         detailsViewModel.movieDetails.observe(viewLifecycleOwner, Observer {
             updateUi(it)
         })
+
+        detailsViewModel.credits.observe(viewLifecycleOwner, Observer {
+            creditAdapter.updateData(it.cast)
+        })
     }
 
     private fun updateUi(movieDetails: MovieDetails) {
+        val rating = "${movieDetails.rating}/10"
         binding.ivMovie.loadRoundCornerImage(movieDetails.imageUrl)
         binding.tvMovieTitle.text = movieDetails.title
         binding.tvMovieDescription.text = movieDetails.overview
-        binding.tvRating.text = movieDetails.rating.toString()
+        binding.tvRating.text = rating
         binding.tvPopularity.text = movieDetails.popularity.toString()
         binding.tvMovieDate.text = movieDetails.date.dateFormat("dd.MM.yyyy")  //TODO
         binding.tvMovieDuration.text = movieDetails.duration.formatDuration()

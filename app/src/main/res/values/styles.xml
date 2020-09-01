@@ -43,8 +43,19 @@
         <item name="android:textColor">@color/steel</item>
     </style>
 
-    <style name="Text_semi_bold_steel_16" parent="Text_semi_bold_dark_blue_grey_32">
+<!--    <style name="Text_semi_bold_steel_16" parent="TextAppearance">-->
+<!--        <item name="fontFamily">@font/exo_2_regular</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="android:textColor">@color/steel</item>-->
+<!--    </style>-->
+    <style name="Text_semi_bold_dark_blue_grey_16" parent="Text_semi_bold_dark_blue_grey_32">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="Text_semi_bold_steel_14" parent="Text_semi_bold_dark_blue_grey_32">
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/steel</item>
     </style>
     
 

@@ -1,6 +1,6 @@
 package com.optimus.moviescollection.data.remote
 
-import com.optimus.moviescollection.data.model.GenreResponse
+import com.optimus.moviescollection.data.model.genre.GenreResponse
 import retrofit2.http.GET
 
 /**

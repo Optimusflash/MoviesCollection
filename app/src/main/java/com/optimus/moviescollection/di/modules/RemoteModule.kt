@@ -1,10 +1,7 @@
 package com.optimus.moviescollection.di.modules
 
 import com.optimus.moviescollection.BuildConfig
-import com.optimus.moviescollection.data.remote.GenreService
-import com.optimus.moviescollection.data.remote.MovieDetailsService
-import com.optimus.moviescollection.data.remote.PopularMovieService
-import com.optimus.moviescollection.data.remote.MoviesInterceptor
+import com.optimus.moviescollection.data.remote.*
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -67,5 +64,11 @@ class RemoteModule {
     @Singleton
     fun provideMovieDetailService(retrofit: Retrofit): MovieDetailsService {
         return retrofit.create(MovieDetailsService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCreditsService(retrofit: Retrofit): CreditsService {
+        return retrofit.create(CreditsService::class.java)
     }
 }

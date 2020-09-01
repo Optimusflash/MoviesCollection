@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.data.model
+package com.optimus.moviescollection.data.model.genre
 
 import com.google.gson.annotations.SerializedName
 

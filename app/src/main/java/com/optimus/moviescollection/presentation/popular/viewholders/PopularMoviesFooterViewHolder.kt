@@ -27,9 +27,6 @@ class PopularMoviesFooterViewHolder(
         }
     }
 
-
-
-
     fun bind(state: State) {
         binding.pbFooter.visibility = if (state == State.LOADING) VISIBLE else INVISIBLE
         binding.tvMessageError.visibility = if (state == State.ERROR) VISIBLE else INVISIBLE

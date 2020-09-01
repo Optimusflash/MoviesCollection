@@ -3,8 +3,8 @@ package com.optimus.moviescollection.presentation.popular
 import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.optimus.moviescollection.data.model.Genre
-import com.optimus.moviescollection.data.model.Movie
+import com.optimus.moviescollection.data.model.genre.Genre
+import com.optimus.moviescollection.data.model.movie.Movie
 import com.optimus.moviescollection.data.paging.MovieDataSource
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
 import com.optimus.moviescollection.data.repositories.MainRepository

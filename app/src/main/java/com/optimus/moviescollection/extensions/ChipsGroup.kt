@@ -1,10 +1,9 @@
 package com.optimus.moviescollection.extensions
 
 import android.content.Context
-import androidx.core.view.children
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.optimus.moviescollection.data.model.Genre
+import com.optimus.moviescollection.data.model.genre.Genre
 import java.util.*
 
 /**

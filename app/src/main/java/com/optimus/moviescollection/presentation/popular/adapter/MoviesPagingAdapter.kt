@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.optimus.moviescollection.data.model.Movie
+import com.optimus.moviescollection.data.model.movie.Movie
 import com.optimus.moviescollection.presentation.popular.viewholders.PopularMoviesFooterViewHolder
 import com.optimus.moviescollection.presentation.popular.viewholders.PopularMoviesViewHolder
 import com.optimus.moviescollection.utils.State

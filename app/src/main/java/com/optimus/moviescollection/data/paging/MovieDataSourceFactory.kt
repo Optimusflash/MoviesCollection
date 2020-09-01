@@ -2,7 +2,7 @@ package com.optimus.moviescollection.data.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.optimus.moviescollection.data.model.Movie
+import com.optimus.moviescollection.data.model.movie.Movie
 import com.optimus.moviescollection.data.remote.PopularMovieService
 import com.optimus.moviescollection.di.Injector
 import kotlinx.coroutines.CoroutineScope

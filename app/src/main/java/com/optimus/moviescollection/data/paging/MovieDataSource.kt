@@ -3,14 +3,12 @@ package com.optimus.moviescollection.data.paging
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.optimus.moviescollection.data.model.Movie
+import com.optimus.moviescollection.data.model.movie.Movie
 import com.optimus.moviescollection.data.remote.PopularMovieService
 import com.optimus.moviescollection.utils.State
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 /**
  * Created by Dmitriy Chebotar on 26.08.2020.

@@ -1,6 +1,4 @@
-package com.optimus.moviescollection.data.model
-
-import com.google.gson.annotations.SerializedName
+package com.optimus.moviescollection.data.model.genre
 
 /**
  * Created by Dmitriy Chebotar on 31.08.2020.

@@ -1,18 +1,15 @@
 package com.optimus.moviescollection.presentation.popular
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import com.google.android.material.chip.Chip
-import com.optimus.moviescollection.data.model.Genre
+import com.optimus.moviescollection.data.model.genre.Genre
 import com.optimus.moviescollection.databinding.FragmentPopularBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
