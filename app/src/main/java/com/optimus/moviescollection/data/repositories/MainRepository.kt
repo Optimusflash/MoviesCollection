@@ -8,5 +8,5 @@ import javax.inject.Inject
  */
 class MainRepository @Inject constructor(private val genreService: GenreService) {
 
-    suspend fun loadGenres() = genreService.getGenreList()
+    suspend fun loadGenres() = genreService.getGenreList().genres
 }

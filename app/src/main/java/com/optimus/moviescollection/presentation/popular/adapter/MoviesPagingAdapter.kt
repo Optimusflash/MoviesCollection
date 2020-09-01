@@ -12,7 +12,7 @@ import com.optimus.moviescollection.utils.State
 /**
  * Created by Dmitriy Chebotar on 26.08.2020.
  */
-class MoviesPagingAdapter (val onRetryClick: ()->Unit) : PagedListAdapter<Movie, RecyclerView.ViewHolder>(
+class MoviesPagingAdapter (private val onMovieClick: (id: Int)->Unit, private val onRetryClick: ()->Unit) : PagedListAdapter<Movie, RecyclerView.ViewHolder>(
     MOVIE_COMPARATOR
 ) {
     private val DATA_VIEW_TYPE = 1
@@ -39,7 +39,7 @@ class MoviesPagingAdapter (val onRetryClick: ()->Unit) : PagedListAdapter<Movie,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             DATA_VIEW_TYPE -> {
-                PopularMoviesViewHolder.create(parent)
+                PopularMoviesViewHolder.create(parent, onMovieClick)
             }
             else -> {
                 PopularMoviesFooterViewHolder.create(parent, onRetryClick)

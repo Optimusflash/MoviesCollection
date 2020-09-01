@@ -5,33 +5,58 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/carnation</item>
-<!--        <item name="android:windowBackground">@color/white</item>-->
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@android:color/black</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="chipStyle">@style/DefaultChipStyle</item>
     </style>
 
-    <style name="TextAppearance"> </style>
-
-    <style name="Text_semi_bold_dark_blue_grey_21" parent="TextAppearance">
+    <style name="TextAppearance">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="fontFamily">@font/amiko_semibold</item>
+    </style>
+
+
+
+    <style name="Text_semi_bold_dark_blue_grey_21" parent="TextAppearance">
+        <item name="fontFamily">@font/exo_2_semibold</item>
         <item name="android:textSize">21sp</item>
         <item name="android:textColor">@color/dark_blue_grey</item>
     </style>
 
+    <style name="Text_semi_bold_dark_blue_grey_32" parent="TextAppearance">
+        <item name="fontFamily">@font/exo_2_semibold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="Text_regular_dark_blue_grey_24" parent="TextAppearance">
+        <item name="fontFamily">@font/exo_2_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="Text_regular_steel_16" parent="TextAppearance">
+        <item name="fontFamily">@font/exo_2_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/steel</item>
+    </style>
+
+    <style name="Text_semi_bold_steel_16" parent="Text_semi_bold_dark_blue_grey_32">
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+
+
     <style name="Text_regular_dusk_12" parent="TextAppearance">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="fontFamily">@font/amiko_regular</item>
+        <item name="fontFamily">@font/exo_2_regular</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/dusk</item>
     </style>
 
     <style name="DefaultTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
-        <item name="fontFamily">@font/amiko_semibold</item>
+        <item name="fontFamily">@font/exo_2_semibold</item>
         <item name="android:textSize">13sp</item>
     </style>
 
@@ -48,5 +73,6 @@
         <item name="chipStartPadding">16dp</item>
         <item name="chipEndPadding">16dp</item>
     </style>
+
 
 </resources>

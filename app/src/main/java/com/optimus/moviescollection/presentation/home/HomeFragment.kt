@@ -1,25 +1,35 @@
 package com.optimus.moviescollection.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.optimus.moviescollection.R
 import com.optimus.moviescollection.databinding.FragmentHomeBinding
+import com.optimus.moviescollection.di.Injector
+import com.optimus.moviescollection.di.ViewModelFactory
 import com.optimus.moviescollection.presentation.boxoffice.BoxOfficeFragment
 import com.optimus.moviescollection.presentation.comingsoon.ComingSoonFragment
 import com.optimus.moviescollection.presentation.popular.PopularFragment
 import kotlinx.android.synthetic.main.fragment_home.*
+import javax.inject.Inject
 
 
 class HomeFragment : Fragment() {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var homeSharedViewModel: HomeSharedViewModel
     private lateinit var binding: FragmentHomeBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -27,9 +37,29 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navController = findNavController()
+        initDaggerComponent()
         initViews()
+        initViewModel()
+        setObservers()
 
+    }
+
+    private fun initDaggerComponent() {
+        Injector.getAppComponent().inject(this)
+    }
+
+
+    private fun initViewModel() {
+        homeSharedViewModel = ViewModelProvider(this, viewModelFactory).get(HomeSharedViewModel::class.java)
+    }
+
+    private fun setObservers() {
+        homeSharedViewModel.movieId.observe(viewLifecycleOwner, Observer {
+            it?:return@Observer
+            homeSharedViewModel.setMovieId(null)
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it)
+            findNavController().navigate(action)
+        })
     }
 
     private fun initViews() {
@@ -43,6 +73,7 @@ class HomeFragment : Fragment() {
         homeViewPagerAdapter.setupFragmentList(
             listOf(
                 PopularFragment(),
+                //   DetailsFragment(),
                 ComingSoonFragment(),
                 BoxOfficeFragment()
             )

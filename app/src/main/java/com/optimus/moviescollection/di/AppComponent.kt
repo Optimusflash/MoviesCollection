@@ -3,6 +3,8 @@ package com.optimus.moviescollection.di
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
 import com.optimus.moviescollection.di.modules.RemoteModule
 import com.optimus.moviescollection.di.modules.ViewModelModule
+import com.optimus.moviescollection.presentation.details.DetailsFragment
+import com.optimus.moviescollection.presentation.home.HomeFragment
 import com.optimus.moviescollection.presentation.popular.PopularFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -14,5 +16,7 @@ import javax.inject.Singleton
 @Component(modules = [RemoteModule::class, ViewModelModule::class])
 interface AppComponent {
     fun inject(popularFragment: PopularFragment)
+    fun inject(detailsFragment: DetailsFragment)
+    fun inject(homeFragment: HomeFragment)
     fun inject(movieDataSourceFactory: MovieDataSourceFactory)
 }

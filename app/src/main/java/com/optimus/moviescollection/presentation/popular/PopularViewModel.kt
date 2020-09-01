@@ -3,13 +3,12 @@ package com.optimus.moviescollection.presentation.popular
 import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.optimus.moviescollection.data.model.GenreResponse
+import com.optimus.moviescollection.data.model.Genre
 import com.optimus.moviescollection.data.model.Movie
 import com.optimus.moviescollection.data.paging.MovieDataSource
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
 import com.optimus.moviescollection.data.repositories.MainRepository
 import com.optimus.moviescollection.utils.State
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,12 +20,11 @@ class PopularViewModel @Inject constructor(private val repository: MainRepositor
     private lateinit var _moviePageList: LiveData<PagedList<Movie>>
     val moviePageList: LiveData<PagedList<Movie>>
         get() = _moviePageList
-
+    var checkedGenreId = 0
     private lateinit var movieDataSourceFactory: MovieDataSourceFactory
     private lateinit var _movieDataSource: MutableLiveData<MovieDataSource>
-
-    private lateinit var _genres: LiveData<GenreResponse>
-    val genres: LiveData<GenreResponse>
+    private lateinit var _genres: LiveData<List<Genre>>
+    val genres: LiveData<List<Genre>>
         get() = _genres
 
     init {
@@ -60,7 +58,9 @@ class PopularViewModel @Inject constructor(private val repository: MainRepositor
     }
 
     fun setCheckedChipId(checkedId: Int) {
+        if (checkedId == checkedGenreId) return
         val result = if (checkedId == 0) null else checkedId
+        this.checkedGenreId = checkedId
         movieDataSourceFactory.genreId = result
         _movieDataSource.value?.invalidate()
     }

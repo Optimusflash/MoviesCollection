@@ -11,13 +11,17 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_popularFragment2"
-            app:destination="@id/popularFragment"
-            app:launchSingleTop="false" />
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
-        android:id="@+id/popularFragment"
-        android:name="com.optimus.moviescollection.presentation.popular.PopularFragment"
-        android:label="fragment_popular"
-        tools:layout="@layout/fragment_popular" />
+        android:id="@+id/detailsFragment"
+        android:name="com.optimus.moviescollection.presentation.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
