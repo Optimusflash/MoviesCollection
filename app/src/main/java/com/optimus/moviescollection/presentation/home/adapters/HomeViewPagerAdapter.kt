@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.home
+package com.optimus.moviescollection.presentation.home.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -27,7 +27,5 @@ class HomeViewPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm, B
 
     override fun getPageTitle(position: Int): CharSequence? {
         return tabTitleList[position]
-
     }
-
 }

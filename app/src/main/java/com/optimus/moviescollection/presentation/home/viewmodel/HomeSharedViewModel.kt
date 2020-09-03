@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.home
+package com.optimus.moviescollection.presentation.home.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

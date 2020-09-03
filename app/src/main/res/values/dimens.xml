@@ -9,4 +9,25 @@
     <dimen name="global_spacing_40">40dp</dimen>
     <dimen name="global_spacing_48">48dp</dimen>
     <dimen name="global_spacing_28">28dp</dimen>
+    <dimen name="global_spacing_12">12dp</dimen>
+    <dimen name="iv_size_96">96dp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="iv_size_255">255dp</dimen>
+    <dimen name="iv_size_300">300dp</dimen>
+    <dimen name="corner_radius_35">35dp</dimen>
+    <dimen name="spacing_262">262dp</dimen>
+    <dimen name="elevation_20">20dp</dimen>
+    <dimen name="iv_size_32">32dp</dimen>
+    <dimen name="tv_size_24">24dp</dimen>
+    <dimen name="spacing_70">70dp</dimen>
+    <dimen name="btn_size_64">64dp</dimen>
+    <dimen name="corner_radius_20">20dp</dimen>
+    <dimen name="global_spacing_7">7dp</dimen>
+    <dimen name="spacing_14">14dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_22">22dp</dimen>
+    <dimen name="iv_size_380">380dp</dimen>
+    <dimen name="view_size_200">200dp</dimen>
+    <dimen name="view_size_500">500dp</dimen>
+    <dimen name="text_size_21">21sp</dimen>
 </resources>

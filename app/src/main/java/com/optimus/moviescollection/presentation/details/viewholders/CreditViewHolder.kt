@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.details
+package com.optimus.moviescollection.presentation.details.viewholders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import com.optimus.moviescollection.extensions.loadRoundImageWide185
 class CreditViewHolder(private val binding: CastRvCellBinding) : RecyclerView.ViewHolder(binding.root) {
 
     companion object{
-        fun create(parent: ViewGroup): CreditViewHolder{
+        fun create(parent: ViewGroup): CreditViewHolder {
             val binding =
                 CastRvCellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return CreditViewHolder(binding)

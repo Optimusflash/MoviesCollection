@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.details
+package com.optimus.moviescollection.presentation.details.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -16,7 +16,6 @@ class DetailsViewModel @Inject constructor(private val detailsRepository: Detail
 
     private val _movieId: MutableLiveData<Int> = MutableLiveData()
 
-
     val movieDetails= Transformations.switchMap(_movieId) {
             liveData {
                 emit(detailsRepository.getDetails(it))
@@ -28,7 +27,6 @@ class DetailsViewModel @Inject constructor(private val detailsRepository: Detail
                 emit(creditsRepository.loadCredits(it))
             }
         }
-
 
     fun setMovieId(id: Int?) {
         _movieId.value = id

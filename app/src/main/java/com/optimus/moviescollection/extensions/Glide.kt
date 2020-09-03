@@ -16,7 +16,7 @@ fun ImageView.loadRoundedCornersImage(url: String?){
     val urlPath = "https://image.tmdb.org/t/p/w500$url"
     Glide.with(context)
         .load(urlPath)
-        .error(R.color.golden_yellow)
+        .error(R.drawable.no_image_found)
         .transform(RoundedCorners(context.dpToPx(40).toInt()))
         .into(this)
 }
@@ -26,12 +26,13 @@ fun ImageView.loadRoundCornerImage(url: String?){
     val radius= context.dpToPx(32).toInt()
     Glide.with(context)
         .load(urlPath)
-        .error(R.color.golden_yellow)
+        .error(R.drawable.no_image_found)
         .transform(RoundedCornersTransformation(radius,0, RoundedCornersTransformation.CornerType.BOTTOM_LEFT))
         .into(this)
 }
 
 fun ImageView.loadRoundImageWide185(url: String?, gender: Int){
+    //gender from api service: 1 - female, 2 - man, 0 - ?
     val res = if (gender == 1) R.drawable.no_avatar_female else R.drawable.no_avatar_man
     val urlPath = "https://image.tmdb.org/t/p/w185$url"
     Glide.with(context)

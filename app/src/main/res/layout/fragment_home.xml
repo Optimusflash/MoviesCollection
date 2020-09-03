@@ -3,47 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="24dp"
-    tools:context="com.optimus.moviescollection.presentation.home.HomeFragment">
+    android:paddingTop="@dimen/global_spacing_24"
+    tools:context="com.optimus.moviescollection.presentation.home.fragments.HomeFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
+        android:id="@+id/iv_menu"
         android:layout_width="@dimen/image_icon_size_48"
         android:layout_height="@dimen/image_icon_size_48"
-        android:layout_marginStart="14dp"
-        android:padding="10dp"
+        android:layout_marginStart="@dimen/spacing_14"
+        android:padding="@dimen/spacing_10"
         android:src="@drawable/ic_baseline_menu_open_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_search"
         android:layout_width="@dimen/image_icon_size_48"
         android:layout_height="@dimen/image_icon_size_48"
-        android:layout_marginEnd="14dp"
-        android:padding="10dp"
+        android:layout_marginEnd="@dimen/spacing_14"
+        android:padding="@dimen/spacing_10"
         android:src="@drawable/ic_baseline_search_24"
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_menu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appCompatImageView2" />
+        app:layout_constraintTop_toTopOf="@+id/iv_menu" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2">
+        app:layout_constraintTop_toBottomOf="@+id/iv_menu">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:paddingStart="@dimen/global_spacing_12"
+            android:paddingEnd="@dimen/global_spacing_12"
             app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorColor="@color/carnation"
             app:tabIndicatorFullWidth="false"
             app:tabMode="scrollable"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_menu"
             app:tabTextAppearance="@style/Text_semi_bold_dark_blue_grey_21"
             app:tabTextColor="@color/tab_text_color_state">
 

@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.details
+package com.optimus.moviescollection.presentation.details.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.optimus.moviescollection.R
 import com.optimus.moviescollection.data.model.movie.MovieDetails
 import com.optimus.moviescollection.databinding.FragmentDetailsBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
 import com.optimus.moviescollection.extensions.*
+import com.optimus.moviescollection.presentation.details.adapters.CreditAdapter
+import com.optimus.moviescollection.presentation.details.viewmodel.DetailsViewModel
 import javax.inject.Inject
 
 
@@ -42,7 +45,6 @@ class DetailsFragment : Fragment() {
 
     }
 
-
     private fun initDaggerComponent() {
         Injector.getAppComponent().inject(this)
     }
@@ -58,6 +60,7 @@ class DetailsFragment : Fragment() {
         }
         binding.rvCredits.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvCredits.adapter = creditAdapter
+        binding.btnAdd.setOnClickListener { showToast() }
     }
 
     private fun setObservers() {
@@ -77,7 +80,7 @@ class DetailsFragment : Fragment() {
         binding.tvMovieDescription.text = movieDetails.overview
         binding.tvRating.text = rating
         binding.tvPopularity.text = movieDetails.popularity.toString()
-        binding.tvMovieDate.text = movieDetails.date.dateFormat("dd.MM.yyyy")  //TODO
+        binding.tvMovieDate.text = movieDetails.date.dateFormat(getString(R.string.date_format_pattern))
         binding.tvMovieDuration.text = movieDetails.duration.formatDuration()
         binding.tvVoteCount.text = movieDetails.voteCount.toString()
         binding.chipGroup2.addChips(

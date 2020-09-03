@@ -3,9 +3,9 @@ package com.optimus.moviescollection.di
 import com.optimus.moviescollection.data.paging.MovieDataSourceFactory
 import com.optimus.moviescollection.di.modules.RemoteModule
 import com.optimus.moviescollection.di.modules.ViewModelModule
-import com.optimus.moviescollection.presentation.details.DetailsFragment
-import com.optimus.moviescollection.presentation.home.HomeFragment
-import com.optimus.moviescollection.presentation.popular.PopularFragment
+import com.optimus.moviescollection.presentation.details.fragments.DetailsFragment
+import com.optimus.moviescollection.presentation.home.fragments.HomeFragment
+import com.optimus.moviescollection.presentation.popular.fragments.PopularFragment
 import dagger.Component
 import javax.inject.Singleton
 

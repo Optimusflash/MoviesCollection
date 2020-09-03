@@ -22,7 +22,6 @@ class OffsetItemDecoration(private val context: Context) : RecyclerView.ItemDeco
         state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-        Log.e("M_OffsetItemDecoration", "${parent.getChildAdapterPosition(view)}")
         val offset: Int = (getScreenWidth() / 2.toFloat()).toInt() - view.layoutParams.width / 2
         if (parent.getChildAdapterPosition(view) == 0 || parent.getChildAdapterPosition(view) == -1) {
             (view.layoutParams as MarginLayoutParams).leftMargin = 0

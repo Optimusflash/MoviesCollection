@@ -2,9 +2,9 @@ package com.optimus.moviescollection.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.optimus.moviescollection.di.ViewModelKey
-import com.optimus.moviescollection.presentation.details.DetailsViewModel
-import com.optimus.moviescollection.presentation.home.HomeSharedViewModel
-import com.optimus.moviescollection.presentation.popular.PopularViewModel
+import com.optimus.moviescollection.presentation.details.viewmodel.DetailsViewModel
+import com.optimus.moviescollection.presentation.home.viewmodel.HomeSharedViewModel
+import com.optimus.moviescollection.presentation.popular.viewmodel.PopularViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

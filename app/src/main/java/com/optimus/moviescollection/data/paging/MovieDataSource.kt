@@ -14,16 +14,17 @@ import kotlinx.coroutines.launch
  * Created by Dmitriy Chebotar on 26.08.2020.
  */
 private const val FIRST_PAGE = 1
-private const val PAGE_MAX = 100
 
 class MovieDataSource (private val genreId:Int?, private val popularMovieService: PopularMovieService, private val scope: CoroutineScope) :
     PageKeyedDataSource<Int, Movie>() {
-
 
     var state: MutableLiveData<State> = MutableLiveData()
 
     private lateinit var retryBlock: () -> Unit
 
+    companion object{
+        const val PAGE_SIZE = 10
+    }
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
@@ -33,23 +34,19 @@ class MovieDataSource (private val genreId:Int?, private val popularMovieService
             try {
                 updateState(State.LOADING)
                 val movieResponse = popularMovieService.getPopularMovies(FIRST_PAGE,genreId)
-                Log.e("M_MovieDataSource", "loadInitial $movieResponse")
                 callback.onResult(movieResponse.movies, null, FIRST_PAGE + 1)
                 updateState(State.DONE)
             } catch (e: Exception) {
-                Log.e("M_MovieDataSource", "${e.message}")
                 updateState(State.ERROR)
             }
         }
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Movie>) {
-        if (params.key == PAGE_MAX + 1) return
         scope.launch {
             try {
                 updateState(State.LOADING)
                 val movieResponse = popularMovieService.getPopularMovies(params.key,genreId)
-                Log.e("M_MovieDataSource", "loadAfter $movieResponse")
                 val key = params.key + 1
                 callback.onResult(movieResponse.movies, key)
                 updateState(State.DONE)

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.optimus.moviescollection.presentation.details.DetailsFragment">
+    tools:context="com.optimus.moviescollection.presentation.details.fragments.DetailsFragment">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/iv_movie"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/iv_size_300"
         android:scaleType="centerCrop"
-        app:riv_corner_radius_bottom_left="35dp"
+        app:riv_corner_radius_bottom_left="@dimen/corner_radius_35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,10 +20,10 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="262dp"
+        android:layout_marginTop="@dimen/spacing_262"
         android:layout_marginStart="@dimen/global_spacing_32"
         android:background="@drawable/details_view_meta_data_background"
-        android:elevation="20dp"
+        android:elevation="@dimen/elevation_20"
         android:paddingVertical="@dimen/global_spacing_16"
         android:paddingTop="@dimen/global_spacing_8"
         android:paddingBottom="@dimen/global_spacing_8"
@@ -32,8 +32,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView4"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/iv_size_32"
+            android:layout_height="@dimen/iv_size_32"
             android:src="@drawable/ic_baseline_star_24"
             app:layout_constraintBottom_toTopOf="@+id/tv_rating"
             app:layout_constraintEnd_toStartOf="@+id/appCompatImageView5"
@@ -75,10 +75,10 @@
         <TextView
             android:id="@+id/tv_vote_count"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="@dimen/tv_size_24"
             android:background="@drawable/tv_vote_count_background"
             android:gravity="center"
-            android:paddingHorizontal="8dp"
+            android:paddingHorizontal="@dimen/global_spacing_8"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView5"
@@ -92,10 +92,9 @@
             style="@style/Text_semi_bold_steel_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vote count"
+            android:text="@string/vote_count"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_popularity"
             app:layout_constraintEnd_toEndOf="@+id/tv_vote_count"
-            app:layout_constraintHorizontal_bias="0.58"
             app:layout_constraintStart_toStartOf="@+id/tv_vote_count" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -104,7 +103,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="65dp"
+        android:paddingTop="@dimen/spacing_70"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_movie">
@@ -122,10 +121,28 @@
                 style="@style/Text_semi_bold_dark_blue_grey_32"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                android:paddingEnd="@dimen/global_spacing_12"
+                app:layout_constraintEnd_toStartOf="@+id/btn_add"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Project Power" />
+                tools:text="Project Power " />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add"
+                android:layout_width="@dimen/btn_size_64"
+                android:layout_height="@dimen/btn_size_64"
+                android:backgroundTint="@color/carnation"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:cornerRadius="@dimen/corner_radius_20"
+                android:layout_marginTop="@dimen/global_spacing_7"
+                app:icon="@drawable/ic_baseline_add_28"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_movie_date"
@@ -137,21 +154,12 @@
                 tools:text="2020" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/global_spacing_28"
-                app:layout_constraintBaseline_toBaselineOf="@+id/tv_movie_date"
-                app:layout_constraintStart_toEndOf="@+id/tv_movie_date"
-                tools:text="PG-13" />
-
-            <TextView
                 android:id="@+id/tv_movie_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/global_spacing_24"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
+                android:layout_marginStart="@dimen/global_spacing_32"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_movie_date"
+                app:layout_constraintStart_toEndOf="@+id/tv_movie_date"
                 tools:text="2h 32min" />
 
 
@@ -162,7 +170,6 @@
                 android:paddingTop="@dimen/global_spacing_8"
                 android:paddingBottom="@dimen/global_spacing_8"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_movie_date"
                 app:selectionRequired="false"
@@ -173,7 +180,7 @@
                 style="@style/Text_regular_dark_blue_grey_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plot Summary"
+                android:text="@string/plot_summary"
                 app:layout_constraintStart_toStartOf="@+id/chipGroup2"
                 app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
 
@@ -204,14 +211,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="32dp" />
+                app:layout_constraintGuide_begin="@dimen/global_spacing_32" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="32dp" />
+                app:layout_constraintGuide_end="@dimen/global_spacing_32" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_credits"

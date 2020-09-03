@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.popular
+package com.optimus.moviescollection.presentation.popular.viewmodel
 
 import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder
@@ -39,7 +39,7 @@ class PopularViewModel @Inject constructor(private val repository: MainRepositor
     private fun setupPagedListAndDataSource() {
         movieDataSourceFactory = MovieDataSourceFactory(viewModelScope)
         val config = PagedList.Config.Builder()
-            .setPageSize(10)//TODO
+            .setPageSize(MovieDataSource.PAGE_SIZE)
             .setEnablePlaceholders(false)
             .build()
         _moviePageList = LivePagedListBuilder(movieDataSourceFactory, config).build()

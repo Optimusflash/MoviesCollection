@@ -15,7 +15,9 @@ import javax.inject.Inject
 class MovieDataSourceFactory (private val scope: CoroutineScope): DataSource.Factory<Int, Movie>() {
     @Inject
     lateinit var popularMovieService: PopularMovieService
-    val movieLiveDataSource = MutableLiveData<MovieDataSource>()  //TODO
+    private val _movieLiveDataSource = MutableLiveData<MovieDataSource>()
+    val movieLiveDataSource: MutableLiveData<MovieDataSource>
+        get() = _movieLiveDataSource
     var genreId: Int? = null
 
     init {
@@ -23,8 +25,8 @@ class MovieDataSourceFactory (private val scope: CoroutineScope): DataSource.Fac
     }
 
     override fun create(): DataSource<Int, Movie> {
-        val movieDataSource = MovieDataSource(genreId,popularMovieService, scope)
-        movieLiveDataSource.postValue(movieDataSource)
+        val movieDataSource = MovieDataSource(genreId, popularMovieService, scope)
+        _movieLiveDataSource.postValue(movieDataSource)
         return movieDataSource
     }
 }

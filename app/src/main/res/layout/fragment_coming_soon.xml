@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.optimus.moviescollection.presentation.comingsoon.ComingSoonFragment">
 
-
     <androidx.appcompat.widget.AppCompatImageView
-
-        android:layout_width="255dp"
-        android:layout_height="255dp"
+        android:layout_width="@dimen/iv_size_255"
+        android:layout_height="@dimen/iv_size_255"
         android:src="@drawable/under_constr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

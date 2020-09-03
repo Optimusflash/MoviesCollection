@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Singleton
 class ViewModelFactory @Inject constructor(private val viewModelMap: MutableMap<Class<out ViewModel>, Provider<ViewModel>>): ViewModelProvider.Factory {
 
-//    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val provider = viewModelMap[modelClass] ?: throw IllegalArgumentException("Object ${modelClass.simpleName} cannot be created")
         return provider.get() as T

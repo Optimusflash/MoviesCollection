@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.home
+package com.optimus.moviescollection.presentation.home.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,12 @@ import com.optimus.moviescollection.R
 import com.optimus.moviescollection.databinding.FragmentHomeBinding
 import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
+import com.optimus.moviescollection.extensions.showToast
 import com.optimus.moviescollection.presentation.boxoffice.BoxOfficeFragment
 import com.optimus.moviescollection.presentation.comingsoon.ComingSoonFragment
-import com.optimus.moviescollection.presentation.popular.PopularFragment
+import com.optimus.moviescollection.presentation.home.viewmodel.HomeSharedViewModel
+import com.optimus.moviescollection.presentation.home.adapters.HomeViewPagerAdapter
+import com.optimus.moviescollection.presentation.popular.fragments.PopularFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
@@ -34,20 +37,17 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initDaggerComponent()
         initViews()
         initViewModel()
         setObservers()
-
     }
 
     private fun initDaggerComponent() {
         Injector.getAppComponent().inject(this)
     }
-
 
     private fun initViewModel() {
         homeSharedViewModel = ViewModelProvider(this, viewModelFactory).get(HomeSharedViewModel::class.java)
@@ -63,6 +63,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViews() {
+        binding.ivMenu.setOnClickListener { showToast() }
+        binding.ivSearch.setOnClickListener { showToast() }
         tabLayout.setSelectedTabIndicator(R.drawable.tab_indicator)
         val viewPager = binding.viewPager
         val tabLayout = binding.tabLayout
@@ -73,7 +75,6 @@ class HomeFragment : Fragment() {
         homeViewPagerAdapter.setupFragmentList(
             listOf(
                 PopularFragment(),
-                //   DetailsFragment(),
                 ComingSoonFragment(),
                 BoxOfficeFragment()
             )

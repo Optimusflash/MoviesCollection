@@ -1,4 +1,4 @@
-package com.optimus.moviescollection.presentation.popular
+package com.optimus.moviescollection.presentation.popular.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,8 @@ import com.optimus.moviescollection.di.Injector
 import com.optimus.moviescollection.di.ViewModelFactory
 import com.optimus.moviescollection.extensions.addChips
 import com.optimus.moviescollection.extensions.setLightStatusBar
-import com.optimus.moviescollection.presentation.home.HomeSharedViewModel
+import com.optimus.moviescollection.presentation.home.viewmodel.HomeSharedViewModel
+import com.optimus.moviescollection.presentation.popular.viewmodel.PopularViewModel
 import com.optimus.moviescollection.presentation.popular.adapter.MoviesPagingAdapter
 import com.optimus.moviescollection.utils.OffsetItemDecoration
 import com.optimus.moviescollection.utils.State
@@ -74,7 +75,6 @@ class PopularFragment : Fragment() {
         binding.rvMain.isNestedScrollingEnabled = false
     }
 
-
     private fun setObservers() {
         popularViewModel.genres.observe(viewLifecycleOwner, Observer {
             setupChipsGroup(it)
@@ -89,7 +89,6 @@ class PopularFragment : Fragment() {
                 mainAdapter.setState(it ?: State.DONE)
             }
         })
-
     }
 
     private fun setupChipsGroup(it: List<Genre>) {
