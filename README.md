@@ -14,5 +14,6 @@
 *	Glide
 *	Firebase (analytics, crashlytics)
 *	Kotlin coroutines
+*	Veiw binding
 ____
 <img src="main_screen.gif" width="400"> <img src="detais_screen.gif" width="400"> 
