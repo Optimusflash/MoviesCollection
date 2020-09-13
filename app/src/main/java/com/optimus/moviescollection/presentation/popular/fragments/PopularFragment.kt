@@ -62,7 +62,7 @@ class PopularFragment : Fragment() {
         popularViewModel =
             ViewModelProvider(this, viewModelFactory).get(PopularViewModel::class.java)
         homeSharedViewModel =
-            ViewModelProvider(this, viewModelFactory).get(HomeSharedViewModel::class.java)
+            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeSharedViewModel::class.java)
     }
 
     private fun initViews() {
@@ -76,15 +76,15 @@ class PopularFragment : Fragment() {
     }
 
     private fun setObservers() {
-        popularViewModel.genres.observe(viewLifecycleOwner, Observer {
+        popularViewModel.genres.observe(viewLifecycleOwner, {
             setupChipsGroup(it)
         })
 
-        popularViewModel.moviePageList.observe(viewLifecycleOwner, Observer {
+        popularViewModel.moviePageList.observe(viewLifecycleOwner, {
             mainAdapter.submitList(it)
         })
 
-        popularViewModel.getState().observe(viewLifecycleOwner, Observer {
+        popularViewModel.getState().observe(viewLifecycleOwner,  {
             if (!popularViewModel.listIsEmpty()) {
                 mainAdapter.setState(it ?: State.DONE)
             }

@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        homeSharedViewModel = ViewModelProvider(this, viewModelFactory).get(HomeSharedViewModel::class.java)
+        homeSharedViewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(HomeSharedViewModel::class.java)
     }
 
     private fun setObservers() {

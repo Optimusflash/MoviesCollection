@@ -9,7 +9,7 @@ import javax.inject.Singleton
 /**
  * Created by Dmitriy Chebotar on 31.08.2020.
  */
-@Singleton
+
 class HomeSharedViewModel @Inject constructor() : ViewModel() {
 
     private val _movieId = MutableLiveData<Int>()
